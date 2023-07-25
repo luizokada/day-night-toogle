@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 type ContainerProps = {
   isDark: boolean;
@@ -109,3 +109,39 @@ export const NightSky = styled.div`
     background-color: white;
   }
 `;
+
+type StarProps = {
+  top: number;
+  left: number;
+  isDark: boolean;
+}
+
+const pulsate = keyframes`
+  0% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+`;
+
+
+
+
+export const Star = styled.span<StarProps>`
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  border-radius: 50%;
+  top: ${({ top,isDark }) =>isDark? `${top}%`: `-100%`};
+  left: ${({ left }) => `${left}%`};
+  animation: ${pulsate} 1s linear infinite;
+  transition: top ${ANIMATION_DURATION}s linear;
+  `
