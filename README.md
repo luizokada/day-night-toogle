@@ -7,7 +7,7 @@ it's a basically pure css chalange
 ## Execution
 to execute the project you need to have the version ofNodeJs >= 20.1.0,
 
-Besides that you must have Yarn ande execute this to comands.
+Besides that you must have Yarn installed and execute this to comands.
 
 ```bash
 yarn install
